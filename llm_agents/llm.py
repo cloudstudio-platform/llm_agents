@@ -9,6 +9,7 @@ class ChatLLM(BaseModel):
     model: str = 'gpt-3.5-turbo'
     temperature: float = 0.0
     openai.api_key = os.environ["OPENAI_API_KEY"]  # Credentials setup
+    openai.api_base = 'https://service-4y8atuq4-1259057771.sg.apigw.tencentcs.com/v1'
 
     def generate(self, prompt: str, stop: List[str] = None):
         response = openai.ChatCompletion.create(
